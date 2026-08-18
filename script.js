@@ -17,6 +17,7 @@ const movies = [
    {
     title: "Avatar",
     year: "2009",
+    releaseDate: "18 December 2009",
     genre: "Sci-Fi • Adventure • Action",
     rating: "7.8",
     emoji: "🌌",
@@ -28,7 +29,13 @@ const movies = [
     language: "English",
     runtime: "2h 42min",
     director: "James Cameron",
-
+    trailer:
+    "https://www.youtube.com/watch?v=5PSNL1qE6VY",
+    cast: [
+    "Sam Worthington",
+    "Zoe Saldana",
+    "Sigourney Weaver"
+],
     story:
         "A paraplegic Marine is dispatched to the moon Pandora on a unique mission, where he becomes caught between his orders and protecting the world he discovers."
 },
@@ -356,7 +363,62 @@ function showDetails(title) {
             ${item.rating}/10
 
         </p>
+<p class="details-info">
 
+    📅 <strong>Release Date:</strong>
+    ${item.releaseDate || item.year}
+
+</p>
+
+
+<p class="details-info">
+
+    🌍 <strong>Country:</strong>
+    ${item.country || "N/A"}
+
+</p>
+
+
+<p class="details-info">
+
+    🗣️ <strong>Language:</strong>
+    ${item.language || "N/A"}
+
+</p>
+
+
+<p class="details-info">
+
+    ⏱️ <strong>Runtime:</strong>
+    ${item.runtime || "N/A"}
+
+</p>
+
+
+<p class="details-info">
+
+    🎥 <strong>Director:</strong>
+    ${item.director || "N/A"}
+
+</p>
+
+
+<h3>
+
+    👥 Cast
+
+</h3>
+
+
+<p class="details-info">
+
+    ${
+        item.cast
+        ? item.cast.join(" • ")
+        : "N/A"
+    }
+
+</p>
 
         <hr>
 
@@ -372,7 +434,19 @@ function showDetails(title) {
 
         </p>
 
-
+${
+    item.trailer
+    ? `
+        <a
+            class="trailer-btn"
+            href="${item.trailer}"
+            target="_blank"
+        >
+            ▶️ Watch Trailer
+        </a>
+      `
+    : ""
+}
         <a
             class="download-btn"
             href="${telegramLink}"
@@ -476,3 +550,45 @@ loadMovies();
 loadSeries();
 
 loadPopular();
+// ==========================
+// GENRE FILTER
+// ==========================
+
+function filterMovies(genre) {
+
+    let filteredMovies;
+
+
+    // Show all movies
+    if (genre === "All") {
+
+        filteredMovies = movies;
+
+    }
+
+    // Filter by genre
+    else {
+
+        filteredMovies = movies.filter(function(movie) {
+
+            return movie.genre
+                .toLowerCase()
+                .includes(genre.toLowerCase());
+
+        });
+
+    }
+
+
+    // Get movie container
+    const container =
+        document.getElementById("moviesList");
+
+
+    // Display movies
+    container.innerHTML =
+        filteredMovies
+            .map(createCard)
+            .join("");
+
+}
