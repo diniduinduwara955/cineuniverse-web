@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cine Universe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Telegram Mini App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🎬
+    </div>
+
+    <div>
+        <h1>Cine Universe</h1>
+        <p>Movies • TV Series • Entertainment</p>
+    </div>
+
+</header>
+
+
+<nav class="menu">
+
+    <button onclick="showSection('home')">
+        🏠 Home
+    </button>
+
+    <button onclick="showSection('movies')">
+        🎬 Movies
+    </button>
+
+    <button onclick="showSection('series')">
+        📺 TV Series
+    </button>
+
+</nav>
+
+
+<main>
+
+<section id="home" class="section active">
+
+    <div class="welcome">
+
+        <h2>🎬 Welcome to Cine Universe</h2>
+
+        <p>
+            Your world of Movies & TV Series
+        </p>
+
+        <p class="small">
+            Find your favourite movies and series in one place.
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Search Movies or TV Series..."
+        >
+
+    </div>
+
+
+    <h2 class="section-title">
+        🔥 Popular
+    </h2>
+
+
+    <div id="movieContainer" class="movie-container">
+
+
+        <div class="movie-card"
+             data-title="Avatar"
+             data-type="movie">
+
+            <div class="poster avatar">
+                🌌
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Avatar</h3>
+
+                <p>
+                    Sci-Fi • Adventure • Action
+                </p>
+
+                <p class="rating">
+                    ⭐ IMDb 7.8
+                </p>
+
+                <button onclick="movieDetails('Avatar')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="movie-card"
+             data-title="The Walking Dead"
+             data-type="series">
+
+            <div class="poster walking">
+                🧟
+            </div>
+
+            <div class="movie-info">
+
+                <h3>The Walking Dead</h3>
+
+                <p>
+                    Drama • Horror • Thriller
+                </p>
+
+                <p class="rating">
+                    ⭐ IMDb 8.1
+                </p>
+
+                <button onclick="movieDetails('The Walking Dead')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="movie-card"
+             data-title="Peaky Blinders"
+             data-type="series">
+
+            <div class="poster peaky">
+                🎩
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Peaky Blinders</h3>
+
+                <p>
+                    Crime • Drama
+                </p>
+
+                <p class="rating">
+                    ⭐ IMDb 8.7
+                </p>
+
+                <button onclick="movieDetails('Peaky Blinders')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="movie-card"
+             data-title="Avengers Endgame"
+             data-type="movie">
+
+            <div class="poster marvel">
+                🦸
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Avengers: Endgame</h3>
+
+                <p>
+                    Action • Adventure • Sci-Fi
+                </p>
+
+                <p class="rating">
+                    ⭐ IMDb 8.4
+                </p>
+
+                <button onclick="movieDetails('Avengers: Endgame')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="movies" class="section">
+
+    <h2 class="section-title">
+        🎬 Movies
+    </h2>
+
+    <p>
+        Browse our movie collection.
+    </p>
+
+</section>
+
+
+<section id="series" class="section">
+
+    <h2 class="section-title">
+        📺 TV Series
+    </h2>
+
+    <p>
+        Browse our TV Series collection.
+    </p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        🎬 Cine Universe
+    </p>
+
+    <p>
+        🍿 Happy Watching!
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
