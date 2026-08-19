@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cine Universe - Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="admin-container">
+
+        <h1>
+            🎬 Cine Universe
+        </h1>
+
+        <h2>
+            ➕ Add Movie / TV Series
+        </h2>
+
+
+        <form id="movieForm">
+
+
+            <label>
+                Type
+            </label>
+
+            <select id="type">
+
+                <option value="movie">
+                    🎬 Movie
+                </option>
+
+                <option value="series">
+                    📺 TV Series
+                </option>
+
+            </select>
+
+
+            <label>
+                Title
+            </label>
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Movie / TV Series name"
+                required
+            >
+
+
+            <label>
+                Year
+            </label>
+
+            <input
+                type="number"
+                id="year"
+                placeholder="2026"
+                required
+            >
+
+
+            <label>
+                Release Date
+            </label>
+
+            <input
+                type="text"
+                id="releaseDate"
+                placeholder="18 August 2026"
+            >
+
+
+            <label>
+                Genre
+            </label>
+
+            <input
+                type="text"
+                id="genre"
+                placeholder="Action • Sci-Fi • Drama"
+            >
+
+
+            <label>
+                IMDb Rating
+            </label>
+
+            <input
+                type="text"
+                id="rating"
+                placeholder="8.5"
+            >
+
+
+            <label>
+                Poster URL
+            </label>
+
+            <input
+                type="url"
+                id="poster"
+                placeholder="https://..."
+            >
+
+
+            <label>
+                Country
+            </label>
+
+            <input
+                type="text"
+                id="country"
+                placeholder="USA"
+            >
+
+
+            <label>
+                Language
+            </label>
+
+            <input
+                type="text"
+                id="language"
+                placeholder="English"
+            >
+
+
+            <label>
+                Runtime
+            </label>
+
+            <input
+                type="text"
+                id="runtime"
+                placeholder="2h 30min"
+            >
+
+
+            <label>
+                Director
+            </label>
+
+            <input
+                type="text"
+                id="director"
+                placeholder="Director name"
+            >
+
+
+            <label>
+                Cast
+            </label>
+
+            <input
+                type="text"
+                id="cast"
+                placeholder="Actor 1, Actor 2, Actor 3"
+            >
+
+
+            <label>
+                Trailer URL
+            </label>
+
+            <input
+                type="url"
+                id="trailer"
+                placeholder="YouTube trailer URL"
+            >
+
+
+            <label>
+                Story
+            </label>
+
+            <textarea
+                id="story"
+                rows="6"
+                placeholder="Movie / TV Series story..."
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="admin-add-btn"
+            >
+
+                ➕ Add Movie / TV Series
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
