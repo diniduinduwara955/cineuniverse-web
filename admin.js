@@ -1,11 +1,8 @@
-const SUPABASE_URL = "https://xhtrgzjtvdhxoohgcbvl.supabase.co/rest/v1/";
-const SUPABASE_KEY = "sb_publishable_jzGpskvXUHSYYq9LjNluOg_-rvmkvji";
+const SUPABASE_URL =
+    "https://xhtrgzjtvdhxoohgcbvl.supabase.co";
 
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+const SUPABASE_KEY =
+    "sb_publishable_jzGpskvXUHSYYq9LjNluOg_-rvmkvji";
 
 
 document
@@ -64,36 +61,88 @@ document
         };
 
 
-        const { data, error } =
-            await supabaseClient
-                .from("media")
-                .insert([item])
-                .select();
+        try {
 
+            const response = await fetch(
+                SUPABASE_URL + "/rest/v1/media",
+                {
+                    method: "POST",
 
-        if (error) {
+                    headers: {
 
-            console.error(error);
+                        "apikey": SUPABASE_KEY,
 
-            alert(
-                "❌ Movie එක save කරන්න බැරි වුණා.\n\n" +
-                error.message
+                        "Authorization":
+                            "Bearer " + SUPABASE_KEY,
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Prefer":
+                            "return=representation"
+
+                    },
+
+                    body: JSON.stringify(item)
+
+                }
             );
 
-            return;
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                console.error(
+                    "Supabase Error:",
+                    result
+                );
+
+                alert(
+                    "❌ Movie එක save කරන්න බැරි වුණා.\n\n" +
+                    (
+                        result.message ||
+                        "Unknown error"
+                    )
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "✅ " +
+                item.title +
+                " successfully added!"
+            );
+
+
+            document
+                .getElementById("movieForm")
+                .reset();
+
+
+            console.log(
+                "Movie saved:",
+                result
+            );
 
         }
 
+        catch (error) {
 
-        alert(
-            "✅ " +
-            item.title +
-            " successfully added!"
-        );
+            console.error(
+                "Connection Error:",
+                error
+            );
 
+            alert(
+                "❌ Supabase connection error."
+            );
 
-        document
-            .getElementById("movieForm")
-            .reset();
+        }
 
     });
